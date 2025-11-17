@@ -311,17 +311,37 @@
         }
 
         .btn-secondary {
-            background: white;
+            position: relative;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
             color: #000000;
-            border: 2px solid transparent;
-            background-image: linear-gradient(white, white), linear-gradient(135deg, #c1ff00, #ffeb00, #ffa500, #ff6b00);
-            background-origin: border-box;
-            background-clip: padding-box, border-box;
+            border: 3px solid transparent;
+            border-radius: 10px;
             font-weight: 600;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            background-clip: padding-box;
+        }
+
+        .btn-secondary::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #ffeb00, #ffa500);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            z-index: -1;
+            padding: 3px;
         }
 
         .btn-secondary:hover {
-            background-image: linear-gradient(#f8f8f8, #f8f8f8), linear-gradient(135deg, #c1ff00, #ffeb00, #ffa500, #ff6b00);
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 4px 12px rgba(255, 165, 0, 0.2);
         }
 
         .btn-warning {
@@ -1904,10 +1924,14 @@
         .banner-upload-btn {
             width: 100%;
             padding: 15px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid transparent;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
             border-radius: 12px;
-            color: white;
+            color: #000000;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -1915,6 +1939,7 @@
         }
         
         .banner-upload-btn:hover {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
         }
@@ -1936,8 +1961,13 @@
         }
         
         .banner-modal-buttons .save-btn {
-            background: linear-gradient(135deg, #000000, #059669);
-            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid transparent;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), linear-gradient(135deg, #000000, #059669);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            color: #000000;
         }
         
         .banner-modal-buttons .cancel-btn {
@@ -2288,19 +2318,47 @@
         }
 
         .timer-btn.start {
-            background: linear-gradient(135deg, #c1ff00, #ffeb00, #ffa500, #ff6b00);
+            position: relative;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             color: #000000;
+            border: 3px solid transparent;
             font-weight: 700;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            background-clip: padding-box;
+        }
+
+        .timer-btn.start::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            border-radius: inherit;
+            background: linear-gradient(135deg, #ffeb00, #ffa500);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            z-index: -1;
+            padding: 3px;
         }
 
         .timer-btn.start:hover {
-            filter: brightness(1.1);
-            box-shadow: 0 4px 12px rgba(255, 165, 0, 0.4);
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 4px 12px rgba(255, 165, 0, 0.2);
         }
 
         .timer-btn.pause {
-            background: linear-gradient(135deg, #f59e0b, #d97706);
-            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: #000000;
+            border: 2px solid transparent;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), linear-gradient(135deg, #f59e0b, #d97706);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
         }
 
         .timer-btn.reset {
@@ -2333,30 +2391,50 @@
 
         .timer-input:focus {
             outline: none;
-            border-color: #6366f1;
+            border-color: #000000;
         }
 
         .timer-toggle-btn {
             position: fixed;
             top: 20px;
             left: 20px;
-            background: linear-gradient(135deg, #c1ff00, #ffeb00, #ffa500, #ff6b00);
-            color: #000000;
-            border: none;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            color: #ffffff;
+            border: 3px solid transparent;
             border-radius: 12px;
             padding: 12px 20px;
             cursor: pointer;
             font-size: 14px;
             font-weight: 600;
-            box-shadow: 0 4px 12px rgba(255, 165, 0, 0.3);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             transition: all 0.2s ease;
             z-index: 1001;
+            background-clip: padding-box;
+        }
+
+        .timer-toggle-btn::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #ffeb00, #ffa500);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            z-index: -1;
+            padding: 3px;
         }
 
         .timer-toggle-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
             transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(255, 165, 0, 0.5);
-            filter: brightness(1.1);
+            box-shadow: 0 4px 12px rgba(255, 165, 0, 0.2);
         }
 
         .timer-toggle-btn.hidden {
@@ -3331,7 +3409,7 @@
                     <div class="grid-controls">
                         <div class="control-group">
                             <button class="btn btn-success" onclick="addRow()">+ Add Row</button>
-                            <button class="btn" onclick="addColumn()" style="background: white; color: #000000; border: 2px solid transparent; background-image: linear-gradient(white, white), linear-gradient(135deg, #c1ff00, #ffeb00, #ffa500, #ff6b00); background-origin: border-box; background-clip: padding-box, border-box; margin-left: 10px; font-weight: 600;">+ Add Column</button>
+                            <button class="btn btn-secondary" onclick="addColumn()" style="margin-left: 10px;">+ Add Column</button>
                         </div>
                         <div class="control-group">
                             <div class="dropdown" id="toolsDropdown">
@@ -3355,7 +3433,7 @@
                             <span id="gridProgressText" style="color: #000000; font-weight: 600;">0%</span>
                         </div>
                         <div style="width: 100%; height: 8px; background: rgba(0, 0, 0, 0.1); border-radius: 4px; overflow: hidden;">
-                            <div id="gridProgressBar" style="height: 100%; background: linear-gradient(90deg, #c1ff00, #ffeb00, #ffa500, #ff6b00); width: 0%; transition: width 0.3s ease;"></div>
+                            <div id="gridProgressBar" style="height: 100%; background: linear-gradient(90deg, #ffeb00, #ffa500); width: 0%; transition: width 0.3s ease;"></div>
                         </div>
                         <div style="margin-top: 8px; display: flex; justify-content: space-between; color: #666666; font-size: 12px;">
                             <span id="gridCellsCompleted">0 cells filled</span>
@@ -3411,7 +3489,7 @@
                             <span id="snowflakeProgressText" style="color: #000000; font-weight: 600;">0%</span>
                         </div>
                         <div style="width: 100%; height: 8px; background: rgba(0, 0, 0, 0.1); border-radius: 4px; overflow: hidden;">
-                            <div id="snowflakeProgressBar" style="height: 100%; background: linear-gradient(90deg, #c1ff00, #ffeb00, #ffa500, #ff6b00); width: 0%; transition: width 0.3s ease;"></div>
+                            <div id="snowflakeProgressBar" style="height: 100%; background: linear-gradient(90deg, #ffeb00, #ffa500); width: 0%; transition: width 0.3s ease;"></div>
                         </div>
                         <div style="margin-top: 8px; color: #666666; font-size: 12px;" id="snowflakeStepsCompleted">0 of 9 steps completed</div>
                     </div>
@@ -3800,6 +3878,8 @@
             if (passkey === 'STORYTELLER311') {
                 document.getElementById('passkeyModal').style.display = 'none';
                 document.getElementById('mainApp').style.display = 'block';
+                // Change timer button text to black after login
+                document.getElementById('timerToggleBtn').style.color = '#000000';
                 init();
             } else {
                 alert('Incorrect passkey. Please try again.');
@@ -6758,55 +6838,35 @@
             const note = researchNotes.find(n => n.id === noteId);
             if (!note) return;
             
+            // Store the note ID we're editing
             currentEditingNoteId = noteId;
-            noteModalImages = note.images || (note.image ? [note.image] : []);
-            noteModalTags = [...note.tags];
+            currentNoteCategory = note.category;
             
-            document.getElementById('noteModalTitle').textContent = 'Edit Note';
-            document.getElementById('noteTitle').value = note.title;
-            document.getElementById('noteDescription').value = note.description;
-            document.getElementById('noteCategory').value = note.category;
-            document.getElementById('saveNoteBtn').textContent = 'Update Note';
+            // Hide category notes viewer if open
+            document.getElementById('categoryNotesViewer').style.display = 'none';
             
-            // Set tags
-            const tagsContainer = document.getElementById('noteTagsContainer');
-            tagsContainer.innerHTML = '';
-            noteModalTags.forEach(tag => {
-                const chip = createTagChip(tag);
-                tagsContainer.appendChild(chip);
-            });
-            const tagInput = document.createElement('input');
-            tagInput.type = 'text';
-            tagInput.className = 'note-tag-input';
-            tagInput.id = 'noteTagInput';
-            tagInput.placeholder = 'Type and press Enter to add tags';
-            tagsContainer.appendChild(tagInput);
-            setupTagInput();
+            // Show note creation section (reuse for editing)
+            document.getElementById('noteCreationSection').style.display = 'block';
+            document.getElementById('noteCreationTitle').textContent = `Edit Note`;
             
-            // Set images
-            const imagePreviews = document.getElementById('imagePreviews');
-            imagePreviews.innerHTML = '';
-            noteModalImages.forEach((img, index) => {
-                const preview = createImagePreview(img, index);
-                imagePreviews.appendChild(preview);
-            });
+            // Populate form fields with existing note data
+            document.getElementById('newNoteTitle').value = note.title;
+            document.getElementById('newNoteDescription').innerHTML = note.description;
+            document.getElementById('newNoteTags').value = note.tags.join(', ');
+            document.getElementById('newNoteSource').value = note.source || '';
             
-            // Set source links
-            const sources = note.sources || [note.source || ''];
-            const sourceLinksContainer = document.getElementById('sourceLinksContainer');
-            sourceLinksContainer.innerHTML = '';
-            sources.forEach((source, index) => {
-                const linkItem = document.createElement('div');
-                linkItem.className = 'source-link-item';
-                linkItem.innerHTML = `
-                    <input type="text" class="note-form-input" placeholder="https://example.com" data-source-index="${index}" value="${source}">
-                    <button class="source-link-remove" onclick="removeSourceLink(${index})">×</button>
-                `;
-                sourceLinksContainer.appendChild(linkItem);
-            });
-            sourceLinksCount = sources.length;
+            // Handle image preview if exists
+            const imagePreview = document.getElementById('newNoteImagePreview');
+            if (note.image) {
+                currentNoteImageData = note.image;
+                imagePreview.innerHTML = `<img src="${note.image}" style="max-width: 100%; border-radius: 8px; margin-top: 10px;">`;
+            } else {
+                imagePreview.innerHTML = '';
+                currentNoteImageData = null;
+            }
             
-            document.getElementById('noteModal').classList.add('active');
+            // Scroll to form
+            document.getElementById('noteCreationSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
         function closeNoteModal() {
@@ -7239,6 +7299,7 @@
             }
             currentNoteCategory = '';
             currentNoteImageData = null;
+            currentEditingNoteId = null;
             
             // Clear form fields
             const titleField = document.getElementById('newNoteTitle');
@@ -7312,38 +7373,63 @@
             
             const tagArray = tagsInput ? tagsInput.split(',').map(t => t.trim()).filter(t => t) : [];
             
-            const note = {
-                id: Date.now(),
-                title,
-                description,
-                category: currentNoteCategory,
-                tags: tagArray,
-                images: currentNoteImageData ? [currentNoteImageData] : [],
-                image: currentNoteImageData,
-                sources: source ? [source] : [],
-                source: source || 'Original',
-                date: new Date().toLocaleDateString(),
-                content: ''
-            };
+            // Check if we're editing an existing note
+            if (currentEditingNoteId) {
+                // Update existing note
+                const noteIndex = researchNotes.findIndex(n => n.id === currentEditingNoteId);
+                if (noteIndex !== -1) {
+                    researchNotes[noteIndex] = {
+                        ...researchNotes[noteIndex],
+                        title,
+                        description,
+                        category: currentNoteCategory,
+                        tags: tagArray,
+                        images: currentNoteImageData ? [currentNoteImageData] : researchNotes[noteIndex].images || [],
+                        image: currentNoteImageData || researchNotes[noteIndex].image,
+                        sources: source ? [source] : researchNotes[noteIndex].sources || [],
+                        source: source || researchNotes[noteIndex].source || 'Original',
+                        date: researchNotes[noteIndex].date // Keep original date
+                    };
+                    showConfirmation(`Note "${title}" updated successfully!`, 'success');
+                }
+                currentEditingNoteId = null; // Reset editing state
+            } else {
+                // Create new note
+                const note = {
+                    id: Date.now(),
+                    title,
+                    description,
+                    category: currentNoteCategory,
+                    tags: tagArray,
+                    images: currentNoteImageData ? [currentNoteImageData] : [],
+                    image: currentNoteImageData,
+                    sources: source ? [source] : [],
+                    source: source || 'Original',
+                    date: new Date().toLocaleDateString(),
+                    content: ''
+                };
+                
+                researchNotes.push(note);
+                
+                // Show success message based on action
+                if (closeAfterSave) {
+                    showConfirmation(`Note "${title}" saved and closed!`, 'success');
+                } else {
+                    showConfirmation(`Note "${title}" saved successfully!`, 'success');
+                }
+            }
             
-            researchNotes.push(note);
             renderResearchNotes();
             updateCategoryCounts();
             saveData();
             
-            // Show success message based on action
-            if (closeAfterSave) {
-                showConfirmation(`Note "${title}" saved and closed!`, 'success');
-            } else {
-                showConfirmation(`Note "${title}" saved successfully!`, 'success');
-            }
-            
-            // Hide form and reset only if closeAfterSave is true
+            // Hide form and reset only if closeAfterSave is true or if we were editing
             if (closeAfterSave) {
                 hideNoteCreationForm();
                 console.log('Note saved and form hidden');
             } else {
-                // Clear form but keep it open
+                // For new notes, clear form but keep it open
+                // For edits, close the form (currentEditingNoteId was already reset above)
                 document.getElementById('newNoteTitle').value = '';
                 document.getElementById('newNoteDescription').innerHTML = '';
                 document.getElementById('newNoteTags').value = '';
